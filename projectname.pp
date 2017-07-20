@@ -1,12 +1,23 @@
 node "avm8.llnl.gov" {
 
-file { '/root/example_file.txt':
+
+
+file { '/etc/hosts':
     ensure => "file",
     owner  => "root",
     group  => "root",
     mode   => "700",
-    content => "Congratulations!
-Puppet has created this file.
-",}
+    source => "/root/Puppet_Manifest/hosts"
+,}
 
-} # End node mynode.example.com
+file { '/etc/resolv.conf':
+    ensure => "file",
+    owner  => "root",
+    group  => "root",
+    mode   => "700",
+    source => "/root/Puppet_Manifest/resolv.conf"
+,}
+
+
+
+}
